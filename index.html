@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#10131c">
+  <title>Holo AI — панель проекта</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" aria-label="Главная навигация">
+      <a class="brand" href="#overview" aria-label="Holo AI, главная">
+        <span class="brand-mark"><span></span><span></span><span></span></span>
+        <span><strong>HOLO<span>AI</span></strong><small>PROJECT CONSOLE</small></span>
+      </a>
+      <div class="workspace-label">РАБОЧЕЕ ПРОСТРАНСТВО</div>
+      <nav class="nav-list">
+        <a class="nav-item active" href="#overview"><span class="nav-icon">◫</span>Обзор</a>
+        <a class="nav-item" href="#modules"><span class="nav-icon">◈</span>Модули</a>
+        <a class="nav-item" href="#milestones"><span class="nav-icon">☷</span>План работ</a>
+        <a class="nav-item" href="#safety"><span class="nav-icon">⬡</span>Безопасность</a>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="sidebar-card"><span class="status-dot"></span><div><b>Демо-панель</b><small>Автономное управление отключено</small></div></div>
+        <div class="user-chip"><div class="avatar">H</div><div><b>Holo AI</b><small>Локальный прототип</small></div><span class="more">···</span></div>
+      </div>
+    </aside>
+
+    <main id="overview" class="main-content">
+      <header class="topbar"><div class="breadcrumbs">Проекты <span>/</span> <b>Holo AI</b></div><div class="topbar-right"><span class="local-badge"><i></i> Только интерфейс</span><button class="icon-button" aria-label="Уведомления">♧<em></em></button><div class="avatar small">H</div></div></header>
+      <section class="page-heading"><div><div class="eyebrow">ПАНЕЛЬ ПРОЕКТА <span>•</span> ОБНОВЛЕНО СЕЙЧАС</div><h1>Holo <span>AI</span></h1><p>Центр состояния и планирования безопасного прототипа.</p></div><button id="demoButton" class="primary-button"><span>▶</span> Показать демо-интерфейс</button></section>
+
+      <section class="stats-grid" aria-label="Сводка проекта">
+        <article class="stat-card"><div class="stat-top"><span>Готовность проекта</span><span class="stat-icon violet">◒</span></div><div class="stat-value">24<span>%</span></div><div class="progress-track"><i style="width:24%"></i></div><div class="stat-foot">2 из 8 этапов отмечены</div></article>
+        <article class="stat-card"><div class="stat-top"><span>Модули в плане</span><span class="stat-icon cyan">◈</span></div><div class="stat-value">6</div><div class="stat-foot"><span class="tiny-dot cyan-dot"></span> Архитектура описана</div></article>
+        <article class="stat-card"><div class="stat-top"><span>Режим работы</span><span class="stat-icon amber">⌁</span></div><div class="stat-value mode-value">Наблюдение</div><div class="stat-foot"><span class="tiny-dot amber-dot"></span> Без игровых команд</div></article>
+        <article class="stat-card"><div class="stat-top"><span>Следующий этап</span><span class="stat-icon green">↗</span></div><div class="stat-value date-value">UI прототип</div><div class="stat-foot">Статическая демонстрация</div></article>
+      </section>
+
+      <section class="content-grid">
+        <article class="panel preview-panel">
+          <div class="panel-heading"><div><div class="eyebrow">ПРОСТРАНСТВО ПРОЕКТА</div><h2>Визуальный монитор</h2></div><span class="demo-tag"><i></i> ПРИМЕР</span></div>
+          <div class="monitor-stage" id="monitorStage">
+            <div class="scanline"></div><div class="monitor-corner tl"></div><div class="monitor-corner tr"></div><div class="monitor-corner bl"></div><div class="monitor-corner br"></div>
+            <div class="monitor-center"><div class="orb"><span></span><i></i></div><div class="monitor-title">ОБЛАСТЬ ПРЕДПРОСМОТРА</div><div class="monitor-caption">Подключите собственный источник данных<br>для отображения разрешённых метрик</div></div>
+            <div class="monitor-label label-left"><span class="tiny-dot cyan-dot"></span> UI MOCKUP <small>1920 × 1080</small></div><div class="monitor-label label-right">SOURCE <small>НЕ ПОДКЛЮЧЕН</small></div>
+            <div class="coordinate-grid"></div>
+          </div>
+          <div class="monitor-footer"><span><i class="tiny-dot"></i> Источник не подключён</span><span>Предпросмотр носит демонстрационный характер</span></div>
+        </article>
+
+        <article class="panel activity-panel">
+          <div class="panel-heading"><div><div class="eyebrow">СИСТЕМА</div><h2>Состояние модулей</h2></div><button class="text-button" id="refreshButton">Обновить ↻</button></div>
+          <div class="module-status-list">
+            <div class="module-row"><div class="module-symbol purple-symbol">◉</div><div class="module-copy"><b>Интерфейс</b><small>Статическая панель</small></div><span class="pill ready">Готов</span></div>
+            <div class="module-row"><div class="module-symbol blue-symbol">▧</div><div class="module-copy"><b>Визуализация</b><small>Мокап без распознавания</small></div><span class="pill ready">Готов</span></div>
+            <div class="module-row"><div class="module-symbol orange-symbol">⌘</div><div class="module-copy"><b>ADB / эмулятор</b><small>Не реализован</small></div><span class="pill planned">В плане</span></div>
+            <div class="module-row"><div class="module-symbol pink-symbol">◎</div><div class="module-copy"><b>Telegram</b><small>Не подключён</small></div><span class="pill planned">В плане</span></div>
+            <div class="module-row"><div class="module-symbol green-symbol">⛨</div><div class="module-copy"><b>Игровая автоматизация</b><small>Не входит в прототип</small></div><span class="pill disabled">Отключено</span></div>
+          </div>
+          <div class="notice"><span>ⓘ</span><p>Эта сборка показывает только дизайн и статус проекта. Она не подключается к игре и не выполняет игровые действия.</p></div>
+        </article>
+      </section>
+
+      <section id="modules" class="lower-grid">
+        <article class="panel milestones-panel" id="milestones"><div class="panel-heading"><div><div class="eyebrow">ДОРОЖНАЯ КАРТА</div><h2>Этапы разработки</h2></div><a class="text-button" href="PROGRESS.md">Полный чек-лист ↗</a></div>
+          <div class="milestone-list">
+            <div class="milestone complete"><span class="check">✓</span><div><b>Требования и границы проекта</b><small>Определены безопасный объём и ограничения</small></div><span class="milestone-date">ГОТОВО</span></div>
+            <div class="milestone complete"><span class="check">✓</span><div><b>Дизайн панели Holo AI</b><small>Адаптивный статический интерфейс</small></div><span class="milestone-date">ГОТОВО</span></div>
+            <div class="milestone current"><span class="number">03</span><div><b>Документация и настройка репозитория</b><small>Инструкции, структура, контрольный список</small></div><span class="milestone-date in-progress">В РАБОТЕ</span></div>
+            <div class="milestone"><span class="number">04</span><div><b>Симулятор интерфейса</b><small>Тестовые состояния без управления игрой</small></div><span class="milestone-date">ДАЛЕЕ</span></div>
+          </div>
+        </article>
+        <article class="panel focus-panel" id="safety"><div class="panel-heading"><div><div class="eyebrow">ПРИНЦИПЫ</div><h2>Фокус проекта</h2></div><span class="focus-icon">✳</span></div>
+          <div class="focus-item"><span class="focus-check">✓</span><div><b>Прозрачная демонстрация</b><small>Моковые данные помечены и не выдаются за реальные.</small></div></div>
+          <div class="focus-item"><span class="focus-check">✓</span><div><b>Безопасные интеграции</b><small>Секреты и токены не хранятся во фронтенде.</small></div></div>
+          <div class="focus-item"><span class="focus-check">✓</span><div><b>Никаких игровых действий</b><small>Нет автонаведения, автоматической игры или обхода античита.</small></div></div>
+          <a class="docs-link" href="README.md">Открыть документацию <span>→</span></a>
+        </article>
+      </section>
+      <footer class="footer"><span>HOLO AI <i>•</i> ПРОЕКТНЫЙ ПРОТОТИП</span><span>Сделано для безопасной демонстрации интерфейса</span></footer>
+    </main>
+  </div>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script src="app.js"></script>
+</body>
+</html>
