@@ -1,0 +1,4 @@
+# Holo AI — зависимости безопасного офлайн-анализатора
+opencv-python>=4.8
+numpy>=1.24
+onnxruntime>=1.16

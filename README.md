@@ -1,18 +1,29 @@
-# Holo AI
+# Holo AI — offline video analysis prototype
 
-Статический адаптивный интерфейс-панель проекта на русском языке. Визуальный стиль — тёмная консоль с бирюзовыми и фиолетовыми акцентами; никаких сторонних библиотек сборки не требуется.
+This repository includes a responsive project dashboard and a small Python scaffold for **passive analysis of prerecorded video files**. It does not connect to an emulator or control a game.
 
-## Запуск
+## Python setup
 
-Откройте `index.html` в браузере или раздайте каталог любым статическим HTTP-сервером. Интерфейс не требует установки Python-зависимостей.
+```bash
+python -m pip install -r requirements.txt
+```
 
-## Что реализовано
+Place an ONNX model that you are authorized to use at `models/holo_yolo.onnx`. Check that the model's class order matches `CLASS_NAMES` in `config.py` and that the exported output layout is compatible with the decoder. Model exports vary, so validate against the model's own documentation before relying on the results.
 
-- адаптивная панель с обзором, состоянием модулей, этапами проекта и безопасностью;
-- отдельная демонстрационная область предпросмотра, без получения настоящих игровых кадров;
-- интерактивные уведомления для демонстрационных кнопок и навигации;
-- чек-лист реализации в `PROGRESS.md`.
+Run analysis on a local video file:
 
-## Границы прототипа
+```bash
+python main.py path/to/prerecorded-video.mp4
+```
 
-Эта версия является только UI-мокапом. Она не подключается к Brawl Stars или MuMu Player, не использует ADB, не распознаёт игровые объекты, не прицеливается, не отправляет игровые команды и не содержит обхода античита. Не храните токены или секреты в браузерном коде. Перед добавлением любых интеграций проверьте правила платформы и используйте только разрешённые сценарии, например собственный тестовый стенд или офлайн-симулятор.
+By default, the CSV report is saved under `data/reports/`. To choose another destination:
+
+```bash
+python main.py path/to/prerecorded-video.mp4 --output data/reports/session.csv
+```
+
+## Scope
+
+The Python workflow reads a supplied video file, runs ONNX inference on its frames, and writes detections to CSV. It does not capture live gameplay, connect to ADB, send touch events, aim, navigate, or start/stop gameplay. No credentials or external game API calls are required.
+
+See `PROGRESS.md` for the completed and remaining work.
